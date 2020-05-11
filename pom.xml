@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.lucgameshd</groupId>
-    <artifactId>LocalManager</artifactId>
-    <version>1.0</version>
+    <artifactId>LocaleManager</artifactId>
+    <version>1.1</version>
 
     <properties>
         <project.java.version>1.8</project.java.version>

@@ -29,14 +29,14 @@ public class LocaleManager {
     @Setter
     private boolean useDefaultLocaleForMessages = true;
 
-    public LocaleManager() {
-        this.resourceManager = new ResourceManager( this.getClass().getClassLoader() );
+    public LocaleManager(Class<?> clazz) {
+        this.resourceManager = new ResourceManager( clazz.getClassLoader() );
         this.resourceManager.registerLoader( new PropertiesResourceLoader() );
         this.resourceManager.registerLoader( new YamlResourceLoader() );
 
         // Load stuff from the plugin jar if possible
         try {
-            URL jarFile = this.getClass().getProtectionDomain().getCodeSource().getLocation();
+            URL jarFile = clazz.getProtectionDomain().getCodeSource().getLocation();
             String filePath = jarFile.toExternalForm();
             if ( filePath.startsWith( "file:/" ) ) {
                 try ( JarFile openJarFile = new JarFile( filePath.substring( 6 ) ) ) {
